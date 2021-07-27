@@ -5,12 +5,12 @@ const posts = [
 
 function getPosts() {
   debugger;
-  setTimeOut(() => {
+  setTimeout(() => {
     output = "";
     posts.forEach((post, index) => {
       output += `<li>${post.title}</li>`;
     });
-    console.log(outout);
+    console.log(output);
     document.body.innerHTML = output;
   }, 1000);
 }
@@ -30,4 +30,16 @@ function createPost(post) {
   });
 }
 
-createPost({ title: "post three", body: "this is three post" }).then(getPosts);
+// createPost({ title:"post three", body:"this is three post"})
+
+// .then(getPosts);
+
+// Promises.all
+const promise1 = Promise.resolve("Hello World");
+const promise2 = 10;
+const promise3 = new Promise((resolve, reject) =>
+  setTimeout(resolve, 2000, "Goodbye")
+);
+Promise.all([promise1, promise2, promise3]).then((values) =>
+  console.log(values)
+);

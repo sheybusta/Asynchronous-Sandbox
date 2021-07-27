@@ -5,12 +5,12 @@ const posts = [
 
 function getPosts() {
   debugger;
-  setTimeOut(() => {
+  setTimeout(() => {
     output = "";
     posts.forEach((post, index) => {
       output += `<li>${post.title}</li>`;
     });
-    console.log(outout);
+    console.log(output);
     document.body.innerHTML = output;
   }, 1000);
 }
