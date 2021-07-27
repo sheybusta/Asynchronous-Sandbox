@@ -4,7 +4,6 @@ const posts = [
 ];
 
 function getPosts() {
-  debugger;
   setTimeout(() => {
     output = "";
     posts.forEach((post, index) => {
@@ -19,7 +18,7 @@ function createPost(post) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       posts.push(post);
-      const error = false;
+      const error = false; // error checking, if we changed to true will throught error message
 
       if (!error) {
         resolve();
@@ -30,16 +29,18 @@ function createPost(post) {
   });
 }
 
-// createPost({ title:"post three", body:"this is three post"})
+// This is to create a lot of .then otherwise you have to create Promise.all
+// createPost({ title: "Post three", body: "this is a post three" })
+//   .then(getPosts)
+//   .catch((err) => console.log(err));
 
-// .then(getPosts);
-
-// Promises.all
+// Promise.all
 const promise1 = Promise.resolve("Hello World");
 const promise2 = 10;
-const promise3 = new Promise((resolve, reject) =>
-  setTimeout(resolve, 2000, "Goodbye")
+const promise3 = new Promise(
+  (resolve, reject) => setTimeout(resolve, 2000, "Goodbye") // we add setTimeout of 2000 millsec that is why takes 2sec to show up on console.
 );
+// array of promises
 Promise.all([promise1, promise2, promise3]).then((values) =>
   console.log(values)
 );

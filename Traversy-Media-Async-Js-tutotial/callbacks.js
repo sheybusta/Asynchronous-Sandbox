@@ -4,7 +4,6 @@ const posts = [
 ];
 
 function getPosts() {
-  debugger;
   setTimeout(() => {
     output = "";
     posts.forEach((post, index) => {
